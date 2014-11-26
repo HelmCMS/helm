@@ -1,0 +1,48 @@
+{
+	"name": "helmcms/helm",
+	"description": "Helm CMS",
+	"keywords": ["cms", "blog", "helm", "laravel"],
+	"license": "MIT",
+	"type": "project",
+	"authors": [
+	  {
+		"name": "Adam Patterson",
+		"email": "hello@adampatterson.ca"
+	  }
+	],
+	"support": {
+	  "issues": "https://github.com/helmcms/heml/issues",
+	  "source": "https://github.com/helmcms/heml/source"
+	},
+	"require": {
+		"laravel/framework": "4.2.*",
+		"helmcms/core": "*"
+	},
+	"autoload": {
+		"classmap": [
+			"app/commands",
+			"app/controllers",
+			"app/models",
+			"app/database/migrations",
+			"app/database/seeds",
+			"app/tests/TestCase.php"
+		]
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"php artisan clear-compiled",
+			"php artisan optimize"
+		],
+		"post-update-cmd": [
+			"php artisan clear-compiled",
+			"php artisan optimize"
+		],
+		"post-create-project-cmd": [
+			"php artisan key:generate"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "stable"
+}
